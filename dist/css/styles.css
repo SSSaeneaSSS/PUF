@@ -70,8 +70,20 @@ input[type="radio"].visually-hidden {
   padding: 20px;
 }
 
+::-moz-selection {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+::selection {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
 .main-page {
   font-family: "Tex Gyre Adventor";
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -349,6 +361,67 @@ input[type="radio"].visually-hidden {
   background-position: center;
 }
 
+.footer-flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  padding: 20px 0;
+  background-color: black;
+  box-shadow: 0 -1px 3px 2px rgba(0, 0, 0, 0.6);
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__logo {
+  margin: auto 0;
+}
+
+.contacts__phone-number {
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.contacts__phone-number:hover,
+.contacts__phone-number:focus {
+  background-image: url(../img/substrate.webp);
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+  background-position: center;
+  filter: invert(100%);
+  outline: none;
+}
+
+.contacts__phone-number:active {
+  opacity: 0.8;
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+}
+
+.socials__link {
+  display: block;
+  width: 35px;
+  height: 35px;
+}
+
+.socials__link:hover {
+  opacity: 0.7;
+}
+
+.socials__link:active {
+  opacity: 0.8;
+}
+
 @media (min-width: 520px) {
   .navigation {
     display: flex;
@@ -361,6 +434,12 @@ input[type="radio"].visually-hidden {
   .nav-toggle-close::before,
   .nav-toggle-close::after {
     display: none;
+  }
+}
+
+@media (min-width: 540px) {
+  .logo {
+    order: 1;
   }
 }
 
@@ -389,13 +468,15 @@ input[type="radio"].visually-hidden {
   }
 }
 
+@media (max-width: 540px) {
+  .header__navigation {
+    display: none;
+  }
+}
+
 @media (max-width: 520px) {
   .header-flex {
     flex-direction: column;
-  }
-
-  .header__navigation {
-    display: none;
   }
 
   .header {
@@ -411,6 +492,14 @@ input[type="radio"].visually-hidden {
 }
 
  @media (min-width: 520px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (min-width: 540px){
 
 @supports (-webkit-appearance:none){
 
@@ -435,6 +524,14 @@ input[type="radio"].visually-hidden {
 }
 
  @media (max-width: 760px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 540px){
 
 @supports (-webkit-appearance:none){
 

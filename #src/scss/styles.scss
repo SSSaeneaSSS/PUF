@@ -52,8 +52,15 @@ input[type="radio"].visually-hidden {
 	padding: 20px;
 }
 
+::selection {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #fff;
+}
+
 .main-page {
 	font-family: $main-font;
+	margin: 0;
+	padding: 0;
 }
 
 .container {
@@ -114,7 +121,7 @@ input[type="radio"].visually-hidden {
 			margin: 0 auto;
 		}
 
-		@media (max-width: 520px) {
+		@media (max-width: 540px) {
 			display: none;
 		}
 
@@ -429,27 +436,77 @@ input[type="radio"].visually-hidden {
 	}
 }
 
-.footer {}
+.footer-flex-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer {
+	padding: $gap 0;
+	background-color: $main-color;
+	box-shadow: 0 -1px 3px 2px rgba(0, 0, 0, 0.6);
+
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__logo {
+		margin: auto 0;
+	}
+}
 
 .logo {
 
-	&__text {}
+	@media (min-width: 540px) {
+		order: 1;
+	}
 }
 
-.header {
+.contacts {
 
-	&__logo {}
+	&__phone-number {
+		padding: $gap;
+
+		font-size: 20px;
+		font-weight: bold;
+		color: $second-color;
+
+		&:hover,
+		&:focus {
+			@include substrate;
+			filter: invert(100%);
+			outline: none;
+		}
+
+		&:active {
+			opacity: 0.8;
+		}
+	}
+
+	&__socials {}
 }
-
-.contacts {}
 
 .socials {
+	display: flex;
+	gap: 20px;
 
 	&__item {}
+
+	&__link {
+
+		display: block;
+		width: 35px;
+		height: 35px;
+
+		&:hover {
+			opacity: 0.7;
+		}
+
+		&:active {
+			opacity: 0.8;
+		}
+
+	}
 }
-
-.instagram {}
-
-.whatsapp {}
-
-.avito {}

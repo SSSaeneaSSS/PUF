@@ -10,7 +10,7 @@
 
 <body class="main-page">
 
-	<header class="header">
+	<header class="header" id="main">
 		<div class="container">
       <div class="header-flex">
         <div class="logo header__logo">
@@ -155,19 +155,31 @@
 	</main>
 
 	<footer class="footer">
-		<div class="logo header__logo">
-			<span class="logo__text">Пуф<br>СПБ</span>
+		<div class="container">
+			<div class="footer-flex-wrapper">
+				<div class="logo footer__logo">
+					<a class="logo__text" href='#main'>Пуф<br>СПБ</a>
+				</div>
+
+				<div class="footer__contacts contacts">
+					<a class="contacts__phone-number" id="contacts" href="tel:+79999999999">+7 (999) 999-99-99</a>
+
+					<ul class="contacts__socials socials">
+						<li class="socials__item">
+							<a href="https://www.instagram.com/puf_spb/" class="socials__link">
+								<img src="img/instagram.svg" alt="Instagram">
+							</a>
+						</li>
+
+						<li class="socials__item">
+							<a href="" class="socials__link">
+								<img src="img/whatsapp.svg" alt="whatsapp">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
-
-		<div class="contacts" id="contacts">
-
-		</div>
-
-		<ul class="socials">
-			<li class="socials__item instagram"></li>
-			<li class="socials__item whatsapp"></li>
-			<li class="socials__item avito"></li>
-		</ul>
 	</footer>
 
 	<script src="js/scripts.min.js"></script>
