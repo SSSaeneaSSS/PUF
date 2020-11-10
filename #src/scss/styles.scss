@@ -47,6 +47,11 @@ input[type="radio"].visually-hidden {
 	overflow: hidden;
 }
 
+[class$="title"] {
+	letter-spacing: 0.1em;
+	padding: 20px;
+}
+
 .main-page {
 	font-family: $main-font;
 }
@@ -92,10 +97,7 @@ input[type="radio"].visually-hidden {
 
 		&:hover,
 		&:focus {
-			background-image: url(../img/substrate.webp);
-			background-repeat: no-repeat;
-			background-size: 100% 80%;
-			background-position: center;
+			@include substrate;
 			filter: invert(100%);
 			outline: none;
 		}
@@ -147,6 +149,9 @@ input[type="radio"].visually-hidden {
 	display: flex;
 	flex-wrap: wrap;
 
+	transition: 1s;
+
+
 	@media (max-width: 520px) {
 		flex-direction: column;
 	}
@@ -168,10 +173,7 @@ input[type="radio"].visually-hidden {
 
 		&:hover,
 		&:focus {
-			background-image: url(../img/substrate.webp);
-			background-repeat: no-repeat;
-			background-size: 100% 80%;
-			background-position: center;
+			@include substrate;
 			filter: invert(100%);
 			outline: none;
 		}
@@ -227,8 +229,6 @@ input[type="radio"].visually-hidden {
 
 .nav-toggle-close {
 
-
-
 	&::before,
 	&::after {
 		content: '';
@@ -258,8 +258,11 @@ input[type="radio"].visually-hidden {
 }
 
 .main-slider {
-	min-height: 300px;
+	min-height: 400px;
+	width: 100%;
 	position: relative;
+	display: flex;
+	justify-content: space-around;
 
 	&__item {
 		position: absolute;
@@ -273,7 +276,7 @@ input[type="radio"].visually-hidden {
 	}
 
 	.slide-show {
-		transform: translateX(0vh)
+		transform: translateX(0);
 	}
 
 	&__image {
@@ -315,18 +318,13 @@ input[type="radio"].visually-hidden {
 	width: 290px;
 
 	&__title {
-		display: inline-flex;
-		justify-content: center;
+		display: inline-block;
 
 		font-family: $title-font;
 		font-size: 24px;
 		color: $second-color;
-		background-image: url(../img/substrate.webp);
-		background-repeat: no-repeat;
-		background-size: 100% 80%;
-		background-position: center;
+		@include substrate;
 
-		padding: 10px 20px;
 		margin: 0 auto;
 		margin-bottom: $gap;
 	}
@@ -346,67 +344,89 @@ input[type="radio"].visually-hidden {
 .review-item {}
 
 .information {
+	position: relative;
+
 	display: flex;
+	gap: $gap;
 	flex-direction: column;
+	align-items: center;
+
+
 
 	@media(min-width: 760px) {
 		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: baseline;
 	}
 
+	&::before {
+		content: '';
+
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 50px;
+		bottom: 30px;
+
+		width: 3px;
+		border-radius: 10px;
+
+		background-color: #000;
+
+		@media(max-width: 760px) {
+			width: 0;
+		}
+	}
 }
 
 .payment,
 .delivery {
-	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 40vw;
+	max-width: 350px;
 
 	&__title {
-		position: relative;
 		text-transform: uppercase;
-		text-align: center;
+		font-family: $title-font;
+		font-size: 26px;
+		color: $second-color;
 
-		padding-bottom: 30px;
+		@include substrate;
+
+
 		margin-bottom: $gap;
-
-		&::after {
-			content: '';
-
-			position: absolute;
-			left: 50%;
-			bottom: 0;
-			transform: translateX(-50%) rotate(45deg);
-
-			width: 15px;
-			height: 15px;
-			background-color: $accent-color;
-		}
 	}
 
-	&__list {}
+	&__list {
+		margin-bottom: $gap;
+
+
+	}
 
 	&__item {
 		position: relative;
-		margin-left: 30px;
-		padding-left: 30px;
-		margin-bottom: 10px;
 
-		&:last-of-type {
-			margin-bottom: $gap;
-		}
+		padding-left: 20px;
+		margin-bottom: 15px;
 
 		&::before {
 			content: '';
 
 			position: absolute;
-			left: 0;
 			top: 50%;
-			transform: translateY(-50%) rotate(45deg);
+			left: 0;
+			transform: translateY(-50%);
 
-			width: 7px;
-			height: 7px;
-			background-color: $accent-color;
+			width: 12px;
+			height: 12px;
+
+			@include substrate(100%);
 		}
 	}
-
 }
 
 .footer {}

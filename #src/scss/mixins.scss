@@ -9,3 +9,10 @@
 		font-style: #{$style};
 	}
 }
+
+@mixin substrate($percent: 100% 80%) {
+	background-image: url(../img/substrate.webp);
+	background-repeat: no-repeat;
+	background-size: $percent;
+	background-position: center;
+}
