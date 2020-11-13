@@ -47,16 +47,16 @@
 	<main class="main-content">
 		<div class="container">
 			<ul class="main-slider">
-				<li class="main-slider__item slide-show">
-					<img class='main-slider__image' src="https://via.placeholder.com/1200/499" alt="Элемент слайдера" width="100%" height='400px'>
+				<li class="main-slider__item">
+					<img class='main-slider__image' src="img/5.webp" alt="Элемент слайдера" width="100%" height='330px'>
 				</li>
 				
 				<li class="main-slider__item">
-					<img class='main-slider__image' src="https://via.placeholder.com/1200/500" alt="Элемент слайдера" width="100%" height='400px'>
+					<img class='main-slider__image' src="img/5.webp" alt="Элемент слайдера" width="100%" height='330px'>
 				</li>
 
 				<li class="main-slider__item">
-					<img class='main-slider__image' src="https://via.placeholder.com/1200/101" alt="Элемент слайдера" width="100%" height='400px'>
+					<img class='main-slider__image' src="img/5.webp" alt="Элемент слайдера" width="100%" height='330px'>
 				</li>
 			</ul>
 
@@ -112,17 +112,45 @@
 
 				</ul>
 			</section>
+		</div>
 
 			<section class="feedback" id="reviews">
-				<ul class="reviews">
-					<template class='review-item'>
-						<li>
-							<img src="#" alt="отзыв">
+				<div class="container">
+					<div class="title-wrapper">
+						<h2 class="feedback__title">
+							Отзывы о нас
+						</h2>
+					</div>
+
+					<ul class="reviews">
+						<li class='reviews__item'>
+							<img class='reviews__image' src="img/feedback_1.webp" alt="отзыв">
 						</li>
-					</template>
-				</ul>
+
+						<li class='reviews__item'>
+							<img class='reviews__image' src="img/feedback_2.webp" alt="отзыв">
+						</li>
+
+						<li class='reviews__item'>
+							<img class='reviews__image' src="img/feedback_3.webp" alt="отзыв">
+						</li>
+
+						<li class='reviews__item'>
+							<img class='reviews__image' src="img/feedback_4.webp" alt="отзыв">
+						</li>
+
+						<li class='reviews__item'>
+							<img class='reviews__image' src="img/feedback_5.webp" alt="отзыв">
+						</li>
+
+						<li class='reviews__item'>
+							<img class='reviews__image' src="img/feedback_6.webp" alt="отзыв">
+						</li>
+					</ul>
+				</div>
 			</section>
 
+		<div class="container">
 			<section class="information">
 				<h2 class="visually-hidden">
 					Оплата и доставка
@@ -172,7 +200,7 @@
 						</li>
 
 						<li class="socials__item">
-							<a href="" class="socials__link">
+							<a href="https://api.whatsapp.com/send?phone=79992098100" class="socials__link">
 								<img src="img/whatsapp.svg" alt="whatsapp">
 							</a>
 						</li>
@@ -182,7 +210,10 @@
 		</div>
 	</footer>
 
-	<script src="js/scripts.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/scripts.js"></script>
+	
 </body>
 
 </html>
