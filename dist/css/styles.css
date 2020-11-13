@@ -50,8 +50,8 @@ a {
 }
 
 .visually-hidden:not(:focus):not(:active),
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -65,7 +65,8 @@ input[type="radio"].visually-hidden {
   overflow: hidden;
 }
 
-[class$="title"] {
+[class$='title'] {
+  font-family: "Bernier";
   letter-spacing: 0.1em;
   padding: 20px;
 }
@@ -90,6 +91,7 @@ input[type="radio"].visually-hidden {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
 }
 
 .header-flex {
@@ -229,33 +231,90 @@ input[type="radio"].visually-hidden {
   transform: rotate(-45deg);
 }
 
-.main-slider {
-  min-height: 400px;
-  width: 100%;
-  position: relative;
+.slick-list {
+  overflow: hidden;
+}
+
+.slick-track {
   display: flex;
-  justify-content: space-around;
+}
+
+.main-slider {
   margin-bottom: 20px;
 }
 
 .main-slider__item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateX(-1000vh);
-  transition: all 1.5s;
+  outline: none;
+}
+
+.title-wrapper {
+  text-align: center;
+}
+
+.feedback {
+  position: relative;
+  padding: 20px 0;
   margin-bottom: 20px;
 }
 
-.main-slider .slide-show {
-  transform: translateX(0);
+.feedback__title {
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 26px;
+  color: #fff;
+  background-image: url(../img/substrate.webp);
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+  background-position: center;
+  margin-bottom: 20px;
 }
 
-.main-slider__image {
-  display: inline-block;
-  -o-object-fit: cover;
-     object-fit: cover;
-  background-size: contain;
+.feedback .slick-track {
+  align-items: center;
+}
+
+.feedback .slick-arrow {
+  font-size: 0;
+  position: absolute;
+  top: 50%;
+  margin-bottom: -20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #7b838d;
+  background-image: url(../img/slider_arrow.webp);
+  background-repeat: no-repeat;
+  background-position: center 40%;
+  background-size: 60%;
+  opacity: 0.35;
+}
+
+.feedback .slick-arrow:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.feedback .slick-prev {
+  left: 10px;
+  transform: rotate(-90deg);
+}
+
+.feedback .slick-next {
+  right: 10px;
+  transform: rotate(90deg);
+}
+
+.reviews__item {
+  outline: none;
+  text-align: center;
+}
+
+.reviews__image {
+  width: 300px;
 }
 
 .advantages__list {
@@ -288,10 +347,6 @@ input[type="radio"].visually-hidden {
   margin-bottom: 20px;
 }
 
-.feedback {
-  margin-bottom: 20px;
-}
-
 .information {
   position: relative;
   display: flex;
@@ -309,7 +364,7 @@ input[type="radio"].visually-hidden {
   bottom: 30px;
   width: 3px;
   border-radius: 10px;
-  background-color: #000;
+  background-image: linear-gradient(to bottom, #ededed 0, #bab1ba 50%, #ededed 100%);
 }
 
 .payment,
@@ -416,6 +471,7 @@ input[type="radio"].visually-hidden {
 
 .socials__link:hover {
   opacity: 0.7;
+  transition: 0.3s;
 }
 
 .socials__link:active {
@@ -438,7 +494,7 @@ input[type="radio"].visually-hidden {
 }
 
 @media (min-width: 540px) {
-  .logo {
+  .footer__logo {
     order: 1;
   }
 }
@@ -465,6 +521,11 @@ input[type="radio"].visually-hidden {
 @media (max-width: 760px) {
   .information::before {
     width: 0;
+  }
+
+  .payment,
+  .delivery {
+    width: 80vw;
   }
 }
 
