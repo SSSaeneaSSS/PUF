@@ -1,4 +1,4 @@
 node_modules/
 .ssh/
 .vscode/
-*.log
+debug.log
