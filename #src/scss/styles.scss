@@ -49,6 +49,7 @@ input[type='radio'].visually-hidden {
 [class$='title'] {
   font-family: $title-font;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
   padding: 20px;
 }
 
@@ -129,7 +130,7 @@ input[type='radio'].visually-hidden {
     }
   }
 
-  @media (max-width: 520px) {
+  @media (max-width: 540px) {
     padding-bottom: 50px;
   }
 }
@@ -160,13 +161,11 @@ input[type='radio'].visually-hidden {
   display: flex;
   flex-wrap: wrap;
 
-  transition: 1s;
-
-  @media (max-width: 520px) {
+  @media (max-width: 540px) {
     flex-direction: column;
   }
 
-  @media (min-width: 520px) {
+  @media (min-width: 540px) {
     display: flex;
   }
 
@@ -176,7 +175,7 @@ input[type='radio'].visually-hidden {
   &__link {
     display: inline-block;
 
-    padding: 20px 10px;
+    padding: 15px 10px;
 
     font-family: $title-font;
     font-size: 20px;
@@ -196,7 +195,7 @@ input[type='radio'].visually-hidden {
 }
 
 .navigation-toggle {
-  @media (min-width: 520px) {
+  @media (min-width: 540px) {
     display: none;
   }
 
@@ -239,8 +238,9 @@ input[type='radio'].visually-hidden {
   &::after {
     content: '';
     position: absolute;
-    left: 45%;
-    bottom: 20px;
+    left: 50%;
+    margin-left: -20px;
+    bottom: -20px;
 
     width: 40px;
     height: 5px;
@@ -275,10 +275,22 @@ input[type='radio'].visually-hidden {
 // ВЕРХНИЙ СЛАЙДЕР
 
 .main-slider {
-  margin-bottom: $gap;
+  margin-bottom: $gap2;
 
   &__item {
     outline: none;
+  }
+
+  img {
+    height: 500px;
+
+    @media (max-width: 960px) {
+      height: 400px;
+    }
+
+    @media (max-width: 560px) {
+      height: 300px;
+    }
   }
 }
 
@@ -293,6 +305,10 @@ input[type='radio'].visually-hidden {
   padding: 20px 0;
   margin-bottom: $gap;
 
+  .container {
+    padding: 0;
+  }
+
   &__title {
     display: inline-block;
     margin: 0 auto;
@@ -301,7 +317,7 @@ input[type='radio'].visually-hidden {
 
     @include substrate;
 
-    margin-bottom: $gap;
+    margin-bottom: $gap2;
   }
 
   .slick-track {
@@ -358,22 +374,13 @@ input[type='radio'].visually-hidden {
   }
 }
 
-// БЛОК ТОВАРОВ
-
-.goods {
-}
-
-.catalog {
-  &__main-item {
-  }
-
-  &__item {
-  }
-}
-
 // БЛОК ПРЕИМУЩЕСТВ
 
 .advantages {
+  position: relative;
+  padding-bottom: $gap;
+  margin-bottom: $gap2;
+
   &__list {
     display: flex;
     gap: $gap;
@@ -382,6 +389,25 @@ input[type='radio'].visually-hidden {
   }
 
   &__item {
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+
+    height: 2px;
+    border-radius: 10px;
+
+    background-image: linear-gradient(
+      to right,
+      #ededed 0,
+      #bab1ba 50%,
+      #ededed 100%
+    );
   }
 }
 
@@ -404,6 +430,115 @@ input[type='radio'].visually-hidden {
 
   &__text {
     margin-bottom: $gap;
+  }
+}
+
+// БЛОК ТОВАРОВ
+
+.goods {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  &__title {
+    display: inline-block;
+    text-align: center;
+    @include substrate;
+    color: $second-color;
+    margin-bottom: $gap;
+  }
+}
+
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $gap;
+  margin-bottom: $gap;
+
+  &__item {
+    min-height: 380px;
+    width: 280px;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.product {
+  position: relative;
+  overflow: hidden;
+
+  &__overlay {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: #000;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+
+  &:hover > &__overlay {
+    opacity: 0.2;
+  }
+
+  &:hover > &__button {
+    opacity: 1;
+  }
+
+  &:hover > &__name {
+    opacity: 1;
+  }
+
+  &__image {
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+  }
+
+  &__name {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    z-index: 1;
+
+    opacity: 0.8;
+
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__button {
+    opacity: 0;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    z-index: 1;
+
+    display: inline-block;
+
+    padding: 15px;
+
+    font-size: 20px;
+    color: $second-color;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    filter: invert(100%);
+
+    @include substrate;
+    cursor: pointer;
+    transition: opacity 0.3s;
+
+    &:hover,
+    &:focus {
+      filter: drop-shadow(0 0 5px $second-color) invert(100%);
+    }
   }
 }
 
@@ -432,7 +567,7 @@ input[type='radio'].visually-hidden {
     top: 50px;
     bottom: 30px;
 
-    width: 3px;
+    width: 2px;
     border-radius: 10px;
 
     background-image: linear-gradient(
@@ -523,6 +658,14 @@ input[type='radio'].visually-hidden {
       order: 1;
     }
   }
+
+  .logo {
+    &:hover,
+    &:active {
+      box-shadow: 0 0 5px 2px white;
+      transition: 0.2s;
+    }
+  }
 }
 
 .contacts {
@@ -532,6 +675,14 @@ input[type='radio'].visually-hidden {
     font-size: 20px;
     font-weight: bold;
     color: $second-color;
+
+    @media (max-width: 360px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 330px) {
+      font-size: 14px;
+    }
 
     &:hover,
     &:focus {
@@ -558,8 +709,8 @@ input[type='radio'].visually-hidden {
 
   &__link {
     display: block;
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
 
     &:hover {
       opacity: 0.7;
@@ -569,5 +720,406 @@ input[type='radio'].visually-hidden {
     &:active {
       opacity: 0.8;
     }
+  }
+}
+
+// Попап - карточка товара
+
+.good {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+
+  max-width: 350px;
+  padding: 30px;
+  max-height: 90vh;
+  overflow: auto;
+
+  background-color: $popup-color;
+
+  @media (max-width: 450px) {
+    max-width: 90vw;
+  }
+
+  @include popupBorder;
+
+  li {
+    border: none;
+    outline: none;
+  }
+
+  &__gallery {
+    position: relative;
+
+    width: 70%;
+    margin: 0 auto;
+
+    .slick-track {
+      align-items: center;
+    }
+
+    .slick-arrow {
+      font-size: 0;
+
+      position: absolute;
+      top: 40%;
+
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      background-color: transparent;
+      background-image: url(../img/slider_arrow.webp);
+      background-repeat: no-repeat;
+      background-position: center 40%;
+      background-size: 60%;
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 0.5;
+        transition: 0.3s;
+      }
+    }
+
+    .slick-prev {
+      left: -50px;
+      transform: rotate(-90deg);
+      z-index: 10000;
+    }
+
+    .slick-next {
+      right: -50px;
+      transform: rotate(90deg);
+      z-index: 10000;
+    }
+  }
+
+  &__name {
+    text-align: center;
+  }
+
+  &__text {
+    color: $text-color;
+    margin-bottom: $gap;
+  }
+
+  &__specs {
+    text-align: center;
+  }
+
+  &__specs-list {
+    margin-bottom: $gap;
+  }
+
+  &__specs-item {
+    position: relative;
+
+    padding-left: 20px;
+    margin-bottom: 5px;
+
+    color: $text-color;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+
+      width: 12px;
+      height: 12px;
+
+      @include substrate(100%);
+    }
+  }
+
+  &__price {
+    position: relative;
+    bottom: -60px;
+
+    &-value {
+      font-size: 24px;
+      color: blue;
+    }
+  }
+
+  &__btn {
+    align-self: flex-end;
+  }
+}
+
+// Форма заказа
+
+.popup-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+
+  max-height: 90vh;
+  overflow: auto;
+  @media (max-width: 450px) {
+    max-width: 90vw;
+  }
+}
+
+form * {
+  outline: none;
+}
+
+.form {
+  padding: 30px;
+  @include popupBorder;
+  max-width: 350px;
+
+  background-color: $popup-color;
+
+  &__name {
+    text-align: center;
+    margin-bottom: $gap;
+  }
+
+  &__text {
+    color: $text-color;
+
+    margin-bottom: 60px;
+
+    &-name,
+    &-price {
+      color: blue;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: $gap2;
+  }
+
+  &__user-label {
+    margin-bottom: -35px;
+  }
+
+  &__user-name,
+  &__user-phone,
+  &__user-text {
+    padding: 5px;
+
+    @include inputStyle;
+
+    &:focus {
+      box-shadow: 0 0 5px 1px rgba(0, 0, 255, 0.8);
+    }
+  }
+
+  &__user-text {
+    resize: none;
+    overflow: hidden;
+
+    height: 70px;
+  }
+
+  &__button {
+    align-self: flex-end;
+  }
+}
+
+.error {
+  box-shadow: 0 0 5px 1px rgba(250, 1, 1, 0.8);
+}
+
+// Попап - спасибо
+
+.thanks-popup {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+
+  min-width: 300px;
+  max-width: 340px;
+  padding: 30px;
+
+  background-color: $popup-color;
+
+  @include popupBorder;
+
+  &__name {
+    text-align: center;
+    margin-bottom: $gap;
+  }
+
+  &__text {
+    text-align: center;
+    margin-bottom: $gap;
+    line-height: 1.4em;
+  }
+
+  &__inst a {
+    margin: 0 auto;
+  }
+}
+
+// Попап звонка
+
+.call-popup {
+  position: fixed;
+  left: -200%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10000;
+
+  width: 300px;
+  max-width: 80vw;
+  max-height: 80vh;
+  overflow: auto;
+  padding: 30px;
+
+  background-color: $popup-color;
+
+  @include popupBorder;
+  border-left: none;
+
+  transition: translate, 2s;
+
+  &__name {
+    text-align: center;
+
+    margin-bottom: $gap;
+  }
+
+  &__text {
+    color: $text-color;
+
+    margin-bottom: $gap;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  &__user-label {
+    margin-bottom: -10px;
+  }
+
+  &__user-name,
+  &__user-phone {
+    flex-grow: 1;
+
+    padding: 5px;
+
+    @include inputStyle;
+
+    &:focus {
+      box-shadow: 0 0 5px 1px rgba(0, 0, 255, 0.8);
+    }
+  }
+
+  &__button {
+    align-self: flex-end;
+  }
+}
+
+.call-popup-animation {
+  left: -10px;
+}
+
+// КНОПКИ
+
+.button {
+  display: inline-block;
+  padding: 20px;
+  font-size: 20px;
+  color: $second-color;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  @include substrate;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  cursor: pointer;
+
+  display: block;
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+
+    width: 25px;
+    height: 5px;
+    border-radius: 10px;
+
+    background-color: lightgrey;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+
+  &:hover,
+  &:active {
+    filter: contrast(0.5);
+  }
+}
+
+.overlay {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  cursor: pointer;
+}
+
+.display-none {
+  display: none;
+
+  @media (max-width: 660px) {
+    display: none;
   }
 }

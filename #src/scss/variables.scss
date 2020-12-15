@@ -1,6 +1,15 @@
-$main-font: "Tex Gyre Adventor";
-$title-font: "Bernier";
+$main-font: 'Tex Gyre Adventor';
+$title-font: 'Bernier';
 $main-color: black;
 $second-color: white;
 $accent-color: black;
+$popup-color: white;
+$text-color: rgb(114, 114, 114);
+$silver-gradient: linear-gradient(
+  to right,
+  #ededed 0,
+  #bab1ba 50%,
+  #ededed 100%
+);
 $gap: 20px;
+$gap2: 40px;

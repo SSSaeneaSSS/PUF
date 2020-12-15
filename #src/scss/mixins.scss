@@ -1,18 +1,27 @@
 @mixin font($font_name, $file_name, $weight, $style) {
-
-	@font-face {
-		font-family: $font_name;
-		font-display: swap;
-		src: url("../fonts/#{$file_name}.woff") format("woff"),
-		url("../fonts/#{$file_name}.woff2") format("woff2");
-		font-weight: #{$weight};
-		font-style: #{$style};
-	}
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url('../fonts/#{$file_name}.woff') format('woff'),
+      url('../fonts/#{$file_name}.woff2') format('woff2');
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
 }
 
 @mixin substrate($percent: 100% 80%) {
-	background-image: url(../img/substrate.webp);
-	background-repeat: no-repeat;
-	background-size: $percent;
-	background-position: center;
+  background-image: url(../img/substrate.webp);
+  background-repeat: no-repeat;
+  background-size: $percent;
+  background-position: center;
+}
+
+@mixin popupBorder() {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+@mixin inputStyle() {
+  border: none;
+  border-bottom: 1px solid grey;
 }
