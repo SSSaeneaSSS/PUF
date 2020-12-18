@@ -727,8 +727,7 @@ input[type='radio'].visually-hidden {
 
 .good {
   display: flex;
-  flex-direction: column;
-  gap: $gap;
+  gap: 70px;
 
   position: fixed;
   top: 50%;
@@ -736,18 +735,40 @@ input[type='radio'].visually-hidden {
   transform: translate(-50%, -50%);
   z-index: 10000;
 
-  max-width: 350px;
-  padding: 30px;
-  max-height: 90vh;
+  max-width: 800px;
+  padding: 60px;
+  max-height: 70vh;
   overflow: auto;
 
   background-color: $popup-color;
 
-  @media (max-width: 450px) {
-    max-width: 90vw;
+  @include popupBorder;
+
+  @media (max-width: 980px) {
+    flex-direction: column;
+    max-width: 60vw;
+    padding: 30px;
+    gap: 30px;
   }
 
-  @include popupBorder;
+  .flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $gap;
+
+    @media (min-width: 980px) {
+      width: 50%;
+    }
+
+    @media (max-width: 980px) {
+      padding: 0 10%;
+    }
+
+    @media (max-width: 500px) {
+      padding: 0 5%;
+    }
+  }
 
   li {
     border: none;
@@ -757,8 +778,12 @@ input[type='radio'].visually-hidden {
   &__gallery {
     position: relative;
 
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
+
+    @media (max-width: 980px) {
+      width: 80%;
+    }
 
     .slick-track {
       align-items: center;
@@ -845,7 +870,11 @@ input[type='radio'].visually-hidden {
 
   &__price {
     position: relative;
-    bottom: -60px;
+    bottom: -90px;
+
+    @media (max-width: 980px) {
+      bottom: -60px;
+    }
 
     &-value {
       font-size: 24px;
@@ -855,6 +884,11 @@ input[type='radio'].visually-hidden {
 
   &__btn {
     align-self: flex-end;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 5px;
   }
 }
 
